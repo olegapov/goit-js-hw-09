@@ -1,10 +1,5 @@
-// Add imports above this line
-// import { galleryItems } from './gallery-items';
-// Change code below this line
-
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
-// import * as basicLightbox from 'basiclightbox';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const images = [
   {
@@ -89,24 +84,4 @@ const markup = images.map(
 
 gallery.insertAdjacentHTML('beforeend', markup.join(''));
 
-gallery.addEventListener('click', e => {
-  if (e.target === e.currentTarget) return;
-  const liElem = e.target.closest('li');
-  const { original } = liElem;
-  const instance = basicLightbox.create(
-    `
-    <div class="modal box">
-        <img
-        src="${original}"
-        />
-    </div>
-`,
-    {
-      onShow: instance => {},
-      onClose: instance => {},
-    }
-  );
-
-  instance.show();
-});
-// console.log('hello');
+const simpleLightbox = new SimpleLightbox('.gallery a', {});
